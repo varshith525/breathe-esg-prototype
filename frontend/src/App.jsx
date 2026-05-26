@@ -4,9 +4,10 @@ function App() {
   const [records, setRecords] = useState([]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/records")
+    fetch("https://breatheesgbackend-4qc8yhzi.b4a.run/records")
       .then((res) => res.json())
-      .then((data) => setRecords(data));
+      .then((data) => setRecords(data))
+      .catch((err) => console.log(err));
   }, []);
 
   const approveRecord = (index) => {
@@ -46,13 +47,18 @@ function App() {
           color: "black",
         }}
       >
-        <thead>
+        <thead
+          style={{
+            backgroundColor: "#1e293b",
+            color: "white",
+          }}
+        >
           <tr>
             <th>Source</th>
             <th>Category</th>
             <th>Quantity</th>
             <th>Unit</th>
-            <th>CO2</th>
+            <th>CO2e</th>
             <th>Status</th>
             <th>Flag</th>
             <th>Action</th>
@@ -71,20 +77,25 @@ function App() {
               }}
             >
               <td>
-                {record.Source || record.Werk}
+                {record.Source || record.Werk || "N/A"}
               </td>
 
               <td>
                 {record.Category ||
-                  record.Brennstofftyp}
+                  record.Brennstofftyp ||
+                  "N/A"}
               </td>
 
               <td>
-                {record.Quantity || record.Menge}
+                {record.Quantity ||
+                  record.Menge ||
+                  "N/A"}
               </td>
 
               <td>
-                {record.Unit || record.Einheit}
+                {record.Unit ||
+                  record.Einheit ||
+                  "N/A"}
               </td>
 
               <td>{record.co2e}</td>
@@ -99,6 +110,10 @@ function App() {
                   style={{
                     padding: "6px 12px",
                     cursor: "pointer",
+                    backgroundColor: "#16a34a",
+                    color: "white",
+                    border: "none",
+                    borderRadius: "4px",
                   }}
                 >
                   Approve
