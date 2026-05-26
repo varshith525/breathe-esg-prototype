@@ -1,0 +1,5 @@
+Buchungsdatum,Werk,Brennstofftyp,Menge,Einheit
+12-01-2026,BLR01,Diesel,500,L
+14-01-2026,HYD02,Petrol,300,L
+15-01-2026,MUM01,Natural Gas,120,m3
+16-01-2026,BLR01,Diesel,-50,L

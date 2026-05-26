@@ -1,0 +1,4 @@
+Source,Category,Quantity,Unit
+Utility,Electricity,2100,kWh
+Utility,Electricity,3200,kWh
+Utility,Electricity,-100,kWh
